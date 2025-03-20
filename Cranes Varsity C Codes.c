@@ -243,12 +243,11 @@ int main() {
 
 
 
-// Online C compiler to run C program online
 #include <stdio.h>
 
 int main() {
-    // Write C code here
-    int a,b,c;
+
+	int a,b,c;
     scanf("%d %d %d",&a,&b,&c);
     if(a==b && b==c && c==a ){
         printf("Equilatoral");
