@@ -5877,7 +5877,6 @@ int main() {
 
 *************************************************Linked List(Reverse,Sort,Search)*********************************
 
-/// Online C compiler to run C program online
 #include <stdio.h>
 #include<stdlib.h>
 struct sll
@@ -5938,6 +5937,7 @@ void search()
         temp=temp->next;
         f++;
     }
+    printf("%d - Element is not Found.....!",key);
 }
 void sort()
 {
@@ -5987,9 +5987,10 @@ int main() {
     disp();
     printf("\n");
     search();
-
+    
     return 0;
 }
+
 
 
 ************************************************Sum of subarray*******************************************
