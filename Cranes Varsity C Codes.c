@@ -5987,7 +5987,6 @@ int main() {
     disp();
     printf("\n");
     search();
-   // disp();
 
     return 0;
 }
