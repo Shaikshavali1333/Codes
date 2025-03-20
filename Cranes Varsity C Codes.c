@@ -5875,12 +5875,11 @@ int main() {
     return 0;
 }
 
-*************************************************Reverse Linked List*********************************
+*************************************************Linked List(Reverse,Sort,Search)*********************************
 
-
-// Online C compiler to run C program online
+/// Online C compiler to run C program online
 #include <stdio.h>
-#include <stdlib.h>
+#include<stdlib.h>
 struct sll
 {
     int data;
@@ -5888,30 +5887,20 @@ struct sll
 };
 typedef struct sll node;
 node *first=NULL,*last=NULL;
+
 void ins(int ele)
 {
     node *new=(node *)malloc(sizeof(node));
+    new->data=ele;
+    new->next=NULL;
     if(first==NULL)
     {
-        new->data=ele;
-        new->next=NULL;
-        last=first=new;
+        first=last=new;
     }
     else
     {
-        new->data=ele;
-        new->next=NULL;
         last->next=new;
         last=new;
-    }
-}
-void disp()
-{
-    node *temp=first;
-    while(temp!=NULL)
-    {
-        printf("%d ",temp->data);
-        temp=temp->next;
     }
 }
 void rev()
@@ -5927,19 +5916,81 @@ void rev()
         cur=next;
     }
     first=prev;
+    last = first;
+    while (last != NULL && last->next != NULL) {
+        last = last->next;
+    }
 }
+void search()
+{
+    int key;
+    printf("Enter the Value you want to Search: ");
+    scanf("%d",&key);
+    node *temp=first;
+    int f=0;
+    while(temp!=NULL)
+    {
+        if(temp->data==key)
+        {
+            printf("%d",f+1);
+            return;
+        }
+        temp=temp->next;
+        f++;
+    }
+}
+void sort()
+{
+    node *temp=first;
+    int sw;
+    do
+    {
+        sw=0;
+        temp=first;
+    while(temp!=NULL && temp->next!=NULL)
+    {
+        if(temp->data > temp->next->data)
+        {
+            temp->data=temp->data ^ temp->next->data;
+            temp->next->data=temp->data ^ temp->next->data;
+            temp->data=temp->data ^ temp->next->data;
+            sw=1;
+        }
+        temp=temp->next;
+    }
+    }
+    while(sw);
+}
+void disp()
+{
+    node *temp=first;
+    while(temp!=NULL)
+    {
+        printf("%d ",temp->data);
+        temp=temp->next;
+    }
+}
+
 int main() {
     ins(5);
     ins(10);
+    ins(30);
     ins(20);
     disp();
     printf("\n");
     rev();
     disp();
+    printf("\n");
+    ins(90);
+    ins(80);
+    sort();
+    disp();
+    printf("\n");
+    search();
+   // disp();
 
     return 0;
 }
-
 
 
 ************************************************Sum of subarray*******************************************
